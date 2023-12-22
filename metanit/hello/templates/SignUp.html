@@ -1,0 +1,142 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ua">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Реєстрація користувача</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/components.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="{% static 'cdn/select2.min.css' %}" rel="stylesheet">
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/" style="color:#222222"><strong>До головної сторінки</strong></a>
+        </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card mx-auto">
+                        <div class="card-header text-center">
+                            <h4>Реєстрація</h4>
+                        </div>
+                        <div class="card-body">
+                            <div id="registrationTypeForm">
+                                
+                                <div class="form-group text-center">
+                                    <label for="userType">Виберіть тип особи</label>
+                                    <select class="form-control" id="userType" name="userType">
+                                        <option value="customer">Замовник</option>
+                                        <option value="logistician">Компанія</option>
+                                    </select>
+                                </div>
+                                <button type="button" onclick="showRegistrationForm();">Обрати</button>
+                                <p>Вже зареєстровані? <a href="LogIn">Вхід</a></p>
+                                </в>
+                                <br>
+                                <!-- Форма для замовника -->
+                                <form id="customerRegistrationForm" action="userTypeClient" method="POST"
+                                    style="display: none;" >
+                                    {% csrf_token %}
+                                    <h4 class="text-center">Реєстрація нового замовника</h4>
+                                    <div class="form-group">
+                                        <label for="password">ПІБ:</label>
+                                        <input type="input" class="form-control" id="pib"
+                                            placeholder="Петренко Петро Петрович" name="PIB">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Електронна пошта:</label>
+                                        <input type="input" class="form-control" id="email"
+                                            placeholder="mail@example.com" name="Login">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Номер телефону:</label>
+                                        <input type="input" class="form-control" id="phone" placeholder="+380000000000"
+                                            name="Num">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password">Пароль:</label>
+                                        <input type="password" class="form-control" id="password"
+                                            placeholder="Введіть пароль" name="Passw">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="confirmPassword">Підтвердіть пароль:</label>
+                                        <input type="password" class="form-control" id="confirmPassword"
+                                            placeholder="Підтвердіть пароль" onkeyup="checkPasswordMatch()">
+                                        <small id="passwordMatchMessage" class="text-muted"></small>
+                                    </div>
+                                   
+                                    <button type="submit" id="fid">Зареєструватися</button>
+                                </form>
+
+                                <!-- Форма для логіста -->
+                                <form id="logisticianRegistrationForm" action="userTypeOperation" method="POST"
+                                    style="display: none;" >
+                                    {% csrf_token %}
+                                    <h4 class="text-center">Реєстрація компанії</h4>
+                                    <div class="form-group">
+                                        <label for="password">ПІБ представнка комапнії:</label>
+                                        <input type="input" class="form-control" id="pib"
+                                            placeholder="Петренко Петро Петрович" name="PIB">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Електронна пошта:</label>
+                                        <input type="input" class="form-control" id="email"
+                                            placeholder="mail@example.com" name="Login">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Номер телефону представника компанії:</label>
+                                        <input type="input" class="form-control" id="phone" placeholder="+380000000000"
+                                            name="Num">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password">Пароль:</label>
+                                        <input type="password" class="form-control" id="password"
+                                            placeholder="Введіть пароль" name="Passw">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="confirmPassword">Підтвердіть пароль:</label>
+                                        <input type="password" class="form-control" id="confirmPassword"
+                                            placeholder="Підтвердіть пароль" onkeyup="checkPasswordMatch()">
+                                        <small id="passwordMatchMessage" class="text-muted"></small>
+                                    </div>
+                                    <button type="submit" id="fid">Зареєструватися</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           
+
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+            <script src="{% static 'js/LogInScript.js' %}"></script>
+            <script src="{% static 'cdn/select2.min.js' %}"></script>
+            <script src="{% static 'js/select-cfg.js' %}"></script>
+
+            <!-- jQuery -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <!-- Bootstrap JavaScript -->
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+            
+</body>
+
+</html>

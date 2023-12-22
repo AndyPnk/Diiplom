@@ -1,0 +1,50 @@
+ body {
+     position: relative;
+ }
+
+ .gradient {
+     width: 100%;
+     height: 800px;
+     padding: 0px;
+     margin: 0px;
+ }
+
+ #section1 {
+     padding-top: 50px;
+     height: 100%;
+     background-color: #000000;
+     margin: 0px;
+     padding: 0%;
+     margin-top: 50px;
+     
+ }
+
+
+ #section2 {
+     padding-top: 50px;
+     height: 600px;
+     color: #222222;
+     background-color: #cccccc;
+ }
+
+ #section3 {
+     padding-top: 50px;
+     height: 100%;
+     color: #cccccc;
+     background-color: #222222;
+ }
+
+ #section4 {
+     padding-top: 50px;
+     height: 100%;
+     color: #222222;
+     background-color: #cccccc;
+ }
+
+ #section5 {
+    padding-top: 50px;
+    height: 100%;
+    color: #cccccc;
+    background-color: #222222;
+}
+

@@ -1,0 +1,30 @@
+
+button{
+    color: #ffffff;
+    background-color: black;
+    /* Задаємо чорний колір кнопки */
+    
+    /* Задаємо колір тексту кнопки */
+    padding: 10px 30px;
+    /* Задаємо відступи */
+    border-radius: 100px;
+    /* Закруглюємо кути кнопки */
+    border-width: 1px;
+    border-color: #222222;
+    
+}
+
+button:hover {
+
+
+    background-image: linear-gradient(-45deg, #3EECAC, #EE74E1);
+    /* Градієнтний фон */
+
+    color: #ffffff;
+    border-color: #222222;
+}
+
+button:active {
+    filter: brightness(80%);
+    /* Темніше при кліку */
+}

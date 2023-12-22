@@ -1,0 +1,18 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  html {
+    font-size: 10px;
+  }
+  
+  .card {
+    max-width: 1170px;
+    margin: 0 auto;
+  }
+  
+  h4 {
+    font-size: 15px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }

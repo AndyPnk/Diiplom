@@ -1,0 +1,63 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Авторизація</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="{% static 'src/logo.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/components.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="{% static 'cdn/select2.min.css' %}" rel="stylesheet">
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+ 
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+                <a class="navbar-brand" href="/">Страхова Компанія "БезпекаГарант"</a>
+            </div>
+        </div>
+    </nav>
+ 
+       <!-------------------------------->
+    <div class="container-fluid" style="margin-top: 100px;">
+
+        <div class="jumbotron">
+            <div class="container">
+
+                <form method="POST" action="get_user">
+                    {% csrf_token %}
+
+                    <div align="center">
+                        <img
+                        <legend>
+                            <h1>Авторизація</h1>
+                        </legend>
+                        <br>
+                        <div class="form-group" style="width: 50%;">
+                            <input type="text" class="form-control" name="login" placeholder="Логін">
+                        </div>
+                        <div class="form-group" style="width: 50%;">
+                            <input type="password" class="form-control" name="pass" placeholder="Пароль">
+                        </div>
+                    </div>
+                    <div align="center">
+                        <button type="submit">Вхід</button>
+                        <a href="register" style="color: #222222; padding-left: 10px;">Реєстрація</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/gradient.js' %}"></script>
+</body>
+
+</html>
