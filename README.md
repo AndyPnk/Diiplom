@@ -1,1 +1,1 @@
-# Diiplom
+# Diploma
